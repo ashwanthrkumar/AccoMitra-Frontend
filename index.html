@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="manifest.json">
 
   <!--====== Title ======-->
   <title>Business | Bootstrap 5 Business Template</title>
@@ -40,7 +40,7 @@
         <div class="col-lg-12">
           <nav class="navbar navbar-expand-lg">
             <a class="navbar-brand" href="index.html">
-              <img src="assets/images/white.png" alt="Logo" width="100"/>
+              <img src="assets/images/white.png" alt="Logo" width="100" />
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNine"
               aria-controls="navbarNine" aria-expanded="false" aria-label="Toggle navigation">
@@ -89,7 +89,7 @@
     </div>
     <div class="sidebar-content">
       <div class="sidebar-logo">
-        <a href="index.html"><img src="assets/images/logo.png" alt="Logo" width="100"/></a>
+        <a href="index.html"><img src="assets/images/logo.png" alt="Logo" width="100" /></a>
       </div>
       <p class="text">Lorem ipsum dolor sit amet adipisicing elit. Sapiente fuga nisi rerum iusto intro.</p>
       <!-- logo -->
@@ -129,67 +129,149 @@
   <!--====== SIDEBAR PART ENDS ======-->
 
   <!-- Start header Area -->
-<section id="hero-area" class="header-area header-eight">
-  <div class="container">
-    <div class="row align-items-center">
-      <!-- Left: Content -->
-      <div class="col-lg-6 col-md-12 col-12">
-        <div class="header-content">
-          <!-- Headline: clear marketplace value prop -->
-          <h1>Find Trusted Accountants & File ITR — Fast, Local, and Verified</h1>
+  <section id="hero-area" class="header-area header-eight">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left: Content -->
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="header-content">
+            <!-- Headline: clear marketplace value prop -->
+            <h1>Find Trusted Accountants & File ITR — Fast, Local, and Verified</h1>
 
-          <!-- Short explainer tuned to your marketplace -->
-          <p>
-            Connect with certified accountants near you for ITR filing, GST, bookkeeping,
-            and advisory. Compare profiles, read reviews, book appointments, and
-            securely pay — all from one progressive web app.
-          </p>
+            <!-- Short explainer tuned to your marketplace -->
+            <p>
+              Connect with certified accountants near you for ITR filing, GST, bookkeeping,
+              and advisory. Compare profiles, read reviews, book appointments, and
+              securely pay — all from one progressive web app.
+            </p>
 
-          <!-- Action buttons: user flow & accountant signup -->
-          <div class="button" role="group" aria-label="Primary actions">
-            <!-- Primary CTA: browse accountants -->
-            <a href="/search" class="btn primary-btn" aria-label="Find an accountant">
-              Find an Accountant
-            </a>
+            <!-- Action buttons: user flow & accountant signup -->
+            <div class="button" role="group" aria-label="Primary actions">
+              <!-- Primary CTA: browse accountants -->
+              <a href="/search" class="btn primary-btn" aria-label="Find an accountant">
+                Find an Accountant
+              </a>
 
-            <!-- Secondary CTA: become a provider -->
-            <a href="/become-accountant" class="btn outline-btn" aria-label="Apply as accountant">
-              Become an Accountant
-            </a>
+              <!-- Secondary CTA: become a provider -->
+              <a href="/become-accountant" class="btn outline-btn" aria-label="Apply as accountant">
+                Become an Accountant
+              </a>
 
 
-            <!-- PWA install button (shown only when prompt is available) -->
-            <button id="btn-install-pwa" class="btn primary-btn" style="display:none;" aria-hidden="false">
-              Install App
-            </button>
-          </div>
+              <!-- PWA install button (shown only when prompt is available) -->
+              <button id="btn-install-pwa" class="btn primary-btn" style="display:none;" aria-hidden="false">
+                Install App
+              </button>
+            </div>
 
-      
 
-          <!-- Offline indicator -->
-          <div id="offline-indicator" aria-live="polite" style="margin-top:0.75rem; display:none;">
-            <small>You’re offline — some features are limited. Requests will sync when you reconnect.</small>
+
+            <!-- Offline indicator -->
+            <div id="offline-indicator" aria-live="polite" style="margin-top:0.75rem; display:none;">
+              <small>You’re offline — some features are limited. Requests will sync when you reconnect.</small>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Right: Image / illustrative -->
-      <div class="col-lg-6 col-md-12 col-12">
-        <div class="header-image" role="img" aria-label="Illustration of accountants marketplace">
-          <!-- Use a descriptive alt, lazy loading, and responsive sizes -->
-          <img
-            src="assets/images/white.png"
-            srcset="assets/images/header/hero-image.jpg 800w, assets/images/header/hero-image.jpg 1600w"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            alt="Dashboard showing accountant profiles, ratings and booking flow"
-            loading="lazy"
-          />
+        <!-- Right: Image / illustrative -->
+        <div class="col-lg-6 col-md-12 col-12">
+          <div class="header-image" role="img" aria-label="Illustration of accountants marketplace">
+            <!-- Use a descriptive alt, lazy loading, and responsive sizes -->
+            <img src="assets/images/white.png"
+              srcset="assets/images/header/hero-image.jpg 800w, assets/images/header/hero-image.jpg 1600w"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="Dashboard showing accountant profiles, ratings and booking flow" loading="lazy" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
   <!-- End header Area -->
+
+  <!--===Search section==-->
+  <!-- START: Find Accountants (Responsive Fixed Button Alignment) -->
+  <!-- START: Find Accountants (Responsive Fixed Button Alignment) -->
+  <section class="search-area py-5 bg-light">
+    <div class="container">
+      <!-- Section Heading -->
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Find Trusted Accountants Near You</h2>
+        <p class="text-muted mb-0">Search by location, expertise, or budget — and connect instantly with verified
+          accounting professionals.</p>
+      </div>
+
+      <div class="card p-4 shadow-sm border-0">
+        <div class="row align-items-end gy-3">
+          <!-- Location -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <label for="q-location" class="form-label small fw-semibold">Location / City</label>
+            <input id="q-location" name="location" type="text" class="form-control"
+              placeholder="e.g. Bangalore, Mumbai, Pune" aria-label="Search by location" list="location-suggestions" />
+            <datalist id="location-suggestions">
+              <option value="Bengaluru"></option>
+              <option value="Mumbai"></option>
+              <option value="Delhi"></option>
+              <option value="Chennai"></option>
+              <option value="Hyderabad"></option>
+            </datalist>
+          </div>
+
+          <!-- Expertise -->
+          <div class="col-lg-3 col-md-6 col-12">
+            <label for="q-service" class="form-label small fw-semibold">Expertise</label>
+            <select id="q-service" name="service" class="form-select" aria-label="Choose service">
+              <option value="" selected>Any service</option>
+              <option value="gst-filing">GST Filing</option>
+              <option value="tax-return">Tax Return Filing</option>
+              <option value="bookkeeping">Bookkeeping</option>
+              <option value="payroll">Payroll Management</option>
+              <option value="audit">Audit & Assurance</option>
+              <option value="advisory">Business Advisory</option>
+            </select>
+          </div>
+
+          <!-- Experience Level -->
+          <div class="col-lg-2 col-md-6 col-12">
+            <label for="q-experience" class="form-label small fw-semibold">Experience Level</label>
+            <select id="q-experience" name="expertise" class="form-select" aria-label="Expertise level">
+              <option value="" selected>Any</option>
+              <option value="freelancer">Freelancer</option>
+              <option value="ca">Chartered Accountant (CA)</option>
+              <option value="firm">Accounting Firm</option>
+            </select>
+          </div>
+
+          <!-- Budget -->
+          <div class="col-lg-2 col-md-6 col-12">
+            <label for="q-budget" class="form-label small fw-semibold">Budget (₹)</label>
+            <div class="d-flex gap-2">
+              <input id="q-min-budget" name="min_budget" type="number" class="form-control" placeholder="Min" min="0" />
+              <input id="q-max-budget" name="max_budget" type="number" class="form-control" placeholder="Max" min="0" />
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="col-lg-2 col-md-12 col-12">
+            <label class="form-label small opacity-0 d-block">&nbsp;</label>
+            <div class="d-flex justify-content-lg-end justify-content-center">
+              <button type="submit" form="find-accountants-form" class="btn btn-primary btn-md px-4"
+                aria-label="Find accountants">
+                Find Accountants
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <form id="find-accountants-form" action="/search" method="GET" class="d-none" aria-hidden="true"></form>
+      </div>
+    </div>
+  </section>
+  <!-- END: Find Accountants -->
+
+  <!-- END: Find Accountants -->
+
+
+
 
   <!--====== ABOUT FIVE PART START ======-->
 
@@ -198,134 +280,49 @@
       <div class="row align-items-center">
         <div class="col-lg-6 col-12">
           <div class="about-image-five">
-            <svg class="shape" width="106" height="134" viewBox="0 0 106 134" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <circle cx="1.66654" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="1.66654" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="16.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="16.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="16.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="16.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="16.333" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="30.9998" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6665" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="30.9998" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6665" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="30.9998" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6665" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="30.9998" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6665" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="31" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="74.6668" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="45.6665" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="89.3333" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="60.3333" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="1.66679" r="1.66667" fill="#DADADA" />
-              <circle cx="60.3333" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="16.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="60.3333" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="31.0001" r="1.66667" fill="#DADADA" />
-              <circle cx="60.3333" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="45.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="60.3335" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="88.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="117.667" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="74.6668" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="103" r="1.66667" fill="#DADADA" />
-              <circle cx="60.333" cy="132" r="1.66667" fill="#DADADA" />
-              <circle cx="104" cy="132" r="1.66667" fill="#DADADA" />
-            </svg>
-            <img src="assets/images/about/about-img1.jpg" alt="about" />
+            <img src="assets/images/about/about-img1.jpg" alt="AccoMitra - Accountants Marketplace" />
           </div>
         </div>
         <div class="col-lg-6 col-12">
           <div class="about-five-content">
-            <h6 class="small-title text-lg">OUR STORY</h6>
-            <h2 class="main-title fw-bold">Our team comes with the experience and knowledge</h2>
+            <h6 class="small-title text-lg">ABOUT ACCOMITRA</h6>
+            <h2 class="main-title fw-bold">Connecting Businesses with Trusted Accountants Across India</h2>
             <div class="about-five-tab">
               <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
                   <button class="nav-link active" id="nav-who-tab" data-bs-toggle="tab" data-bs-target="#nav-who"
                     type="button" role="tab" aria-controls="nav-who" aria-selected="true">Who We Are</button>
                   <button class="nav-link" id="nav-vision-tab" data-bs-toggle="tab" data-bs-target="#nav-vision"
-                    type="button" role="tab" aria-controls="nav-vision" aria-selected="false">our Vision</button>
+                    type="button" role="tab" aria-controls="nav-vision" aria-selected="false">Our Vision</button>
                   <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
-                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">our History</button>
+                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">Our Story</button>
                 </div>
               </nav>
               <div class="tab-content" id="nav-tabContent">
+                <!-- Who We Are -->
                 <div class="tab-pane fade show active" id="nav-who" role="tabpanel" aria-labelledby="nav-who-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p><strong>AccoMitra</strong> is India’s first online marketplace built exclusively for accountants
+                    and businesses.
+                    We help companies, startups, and individuals connect with verified accounting professionals for
+                    services like GST filing,
+                    bookkeeping, tax consultation, audits, and more.</p>
+                  <p>Whether you’re a small business looking for reliable accounting help or an accountant seeking new
+                    clients — AccoMitra is your trusted digital partner.</p>
                 </div>
+                <!-- Vision -->
                 <div class="tab-pane fade" id="nav-vision" role="tabpanel" aria-labelledby="nav-vision-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p>Our vision is to create a transparent, efficient, and tech-driven ecosystem where businesses can
+                    easily access accounting expertise on demand.</p>
+                  <p>We aim to empower accountants across India with digital visibility, growth opportunities, and tools
+                    that make collaboration seamless and impactful.</p>
                 </div>
+                <!-- Story -->
                 <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, look like readable English.</p>
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have in some
-                    form,
-                    by injected humour.</p>
+                  <p>AccoMitra started with a simple realization — finding a reliable accountant or managing clients as
+                    one shouldn’t be hard in the digital age.</p>
+                  <p>From that idea grew a platform where technology bridges the gap between accountants and businesses.
+                    Today, AccoMitra continues to grow with one goal:
+                    to make accounting accessible, transparent, and stress-free for everyone.</p>
                 </div>
               </div>
             </div>
@@ -335,6 +332,7 @@
     </div>
     <!-- container -->
   </section>
+
 
   <!--====== ABOUT FIVE PART ENDS ======-->
 
@@ -347,10 +345,10 @@
           <div class="col-12">
             <div class="content">
               <h6>Services</h6>
-              <h2 class="fw-bold">Our Best Services</h2>
+              <h2 class="fw-bold">Accounting Services We Offer</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Connect with verified accountants for all your business needs. From GST filing to tax consultation,
+                our platform brings you the best accounting professionals across India.
               </p>
             </div>
           </div>
@@ -365,13 +363,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-capsule"></i>
+              <i class="lni lni-files"></i>
             </div>
             <div class="service-content">
-              <h4>Refreshing Design</h4>
+              <h4>GST Filing & Compliance</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Get expert help with GST registration, monthly/quarterly returns filing,
+                and compliance management from certified professionals.
               </p>
             </div>
           </div>
@@ -379,13 +377,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-bootstrap"></i>
+              <i class="lni lni-calculator"></i>
             </div>
             <div class="service-content">
-              <h4>Solid Bootstrap 5</h4>
+              <h4>Tax Return Filing</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Professional ITR filing for individuals and businesses with
+                maximum tax savings and complete compliance assurance.
               </p>
             </div>
           </div>
@@ -393,13 +391,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-shortcode"></i>
+              <i class="lni lni-book"></i>
             </div>
             <div class="service-content">
-              <h4>100+ Components</h4>
+              <h4>Bookkeeping & Accounting</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Maintain accurate financial records with professional bookkeeping
+                services and real-time financial reporting for your business.
               </p>
             </div>
           </div>
@@ -407,13 +405,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-dashboard"></i>
+              <i class="lni lni-users"></i>
             </div>
             <div class="service-content">
-              <h4>Speed Optimized</h4>
+              <h4>Payroll Management</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Complete payroll processing including salary calculations,
+                tax deductions, and compliance with labor laws.
               </p>
             </div>
           </div>
@@ -421,13 +419,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-layers"></i>
+              <i class="lni lni-search"></i>
             </div>
             <div class="service-content">
-              <h4>Fully Customizable</h4>
+              <h4>Audit & Assurance</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Professional audit services for statutory compliance,
+                internal audits, and financial statement reviews.
               </p>
             </div>
           </div>
@@ -435,13 +433,13 @@
         <div class="col-lg-4 col-md-6">
           <div class="single-services">
             <div class="service-icon">
-              <i class="lni lni-reload"></i>
+              <i class="lni lni-briefcase"></i>
             </div>
             <div class="service-content">
-              <h4>Regular Updates</h4>
+              <h4>Business Advisory</h4>
               <p>
-                Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy
-                eirmod tempor ividunt labor dolore magna.
+                Strategic financial planning, business growth consulting,
+                and expert advice to scale your business effectively.
               </p>
             </div>
           </div>
@@ -461,10 +459,10 @@
           <div class="col-12">
             <div class="content">
               <h6>Pricing</h6>
-              <h2 class="fw-bold">Pricing & Plans</h2>
+              <h2 class="fw-bold">Choose Your Plan</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Flexible pricing plans for businesses and accountants. Start free and scale as you grow
+                with our comprehensive accounting marketplace platform.
               </p>
             </div>
           </div>
@@ -479,27 +477,27 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen">
             <div class="table-head">
-              <h6 class="title">Starter</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+              <h6 class="title">Basic</h4>
+                <p>Perfect for small businesses and freelancers getting started.</p>
                 <div class="price">
                   <h2 class="amount">
-                    <span class="currency">$</span>0<span class="duration">/mo </span>
+                    <span class="currency">₹</span>0<span class="duration">/mo </span>
                   </h2>
                 </div>
             </div>
 
             <div class="light-rounded-buttons">
               <a href="javascript:void(0)" class="btn primary-btn-outline">
-                Start free trial
+                Get Started Free
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Browse accountant profiles</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Basic search & filters</li>
+                <li> <i class="lni lni-checkmark-circle deactive"></i> Priority support</li>
+                <li> <i class="lni lni-checkmark-circle deactive"></i> Advanced analytics</li>
               </ul>
             </div>
           </div>
@@ -507,27 +505,27 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen middle">
             <div class="table-head">
-              <h6 class="title">Exclusive</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+              <h6 class="title">Professional</h4>
+                <p>Ideal for growing businesses with regular accounting needs.</p>
                 <div class="price">
                   <h2 class="amount">
-                    <span class="currency">$</span>99<span class="duration">/mo </span>
+                    <span class="currency">₹</span>2,999<span class="duration">/mo </span>
                   </h2>
                 </div>
             </div>
 
             <div class="light-rounded-buttons">
               <a href="javascript:void(0)" class="btn primary-btn">
-                Start free trial
+                Start Free Trial
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle deactive"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Everything in Basic</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Priority booking</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Dedicated support</li>
+                <li> <i class="lni lni-checkmark-circle deactive"></i> Custom integrations</li>
               </ul>
             </div>
           </div>
@@ -535,27 +533,27 @@
         <div class="col-lg-4 col-md-6 col-12">
           <div class="pricing-style-fourteen">
             <div class="table-head">
-              <h6 class="title">Premium</h4>
-                <p>Lorem Ipsum is simply dummy text of the printing and industry.</p>
+              <h6 class="title">Enterprise</h4>
+                <p>Complete solution for large businesses and accounting firms.</p>
                 <div class="price">
                   <h2 class="amount">
-                    <span class="currency">$</span>150<span class="duration">/mo </span>
+                    <span class="currency">₹</span>9,999<span class="duration">/mo </span>
                   </h2>
                 </div>
             </div>
 
             <div class="light-rounded-buttons">
               <a href="javascript:void(0)" class="btn primary-btn-outline">
-                Start free trial
+                Contact Sales
               </a>
             </div>
 
             <div class="table-content">
               <ul class="table-list">
-                <li> <i class="lni lni-checkmark-circle"></i> Cras justo odio.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Dapibus ac facilisis in.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Morbi leo risus.</li>
-                <li> <i class="lni lni-checkmark-circle"></i> Excepteur sint occaecat velit.</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Everything in Professional</li>
+                <li> <i class="lni lni-checkmark-circle"></i> Custom integrations</li>
+                <li> <i class="lni lni-checkmark-circle"></i> White-label options</li>
+                <li> <i class="lni lni-checkmark-circle"></i> 24/7 dedicated support</li>
               </ul>
             </div>
           </div>
@@ -573,16 +571,14 @@
       <div class="row justify-content-center">
         <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-9">
           <div class="inner-content">
-            <h2>We love to make perfect <br />solutions for your business</h2>
+            <h2>Ready to Transform Your <br />Accounting Experience?</h2>
             <p>
-              Why I say old chap that is, spiffing off his nut cor blimey
-              guvnords geeza<br />
-              bloke knees up bobby, sloshed arse William cack Richard. Bloke
-              fanny around chesed of bum bag old lost the pilot say there
-              spiffing off his nut.
+              Join thousands of businesses who trust AccoMitra for their accounting needs.<br />
+              Connect with verified accountants, streamline your finances, and focus on what matters most — growing your
+              business.
             </p>
             <div class="light-rounded-buttons">
-              <a href="javascript:void(0)" class="btn primary-btn-outline">Get Started</a>
+              <a href="javascript:void(0)" class="btn primary-btn-outline">Find Your Accountant</a>
             </div>
           </div>
         </div>
@@ -601,11 +597,11 @@
         <div class="row">
           <div class="col-12">
             <div class="content">
-              <h6>latest news</h6>
-              <h2 class="fw-bold">Latest News & Blog</h2>
+              <h6>Latest Insights</h6>
+              <h2 class="fw-bold">Accounting Tips & Industry News</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                Stay updated with the latest accounting trends, tax updates, and business insights
+                from our expert accountants and industry professionals.
               </p>
             </div>
           </div>
@@ -624,17 +620,16 @@
               <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/1.jpg" alt="Blog" /></a>
               <div class="meta-details">
                 <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
+                <span>BY RAJESH KUMAR, CA</span>
               </div>
             </div>
             <div class="content-body">
               <h4 class="title">
-                <a href="javascript:void(0)"> Make your team a Design driven company </a>
+                <a href="javascript:void(0)"> Essential GST Compliance Tips for Small Businesses </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                Learn the key GST compliance requirements and best practices to keep your business
+                compliant and avoid penalties with expert guidance from certified accountants.
               </p>
             </div>
           </div>
@@ -647,19 +642,18 @@
               <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/2.jpg" alt="Blog" /></a>
               <div class="meta-details">
                 <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
+                <span>BY PRIYA SHARMA, CA</span>
               </div>
             </div>
             <div class="content-body">
               <h4 class="title">
                 <a href="javascript:void(0)">
-                  The newest web framework that changed the world
+                  Tax Planning Strategies for FY 2024-25
                 </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                Discover effective tax planning strategies to maximize your savings and ensure
+                compliance with the latest tax regulations for the current financial year.
               </p>
             </div>
           </div>
@@ -672,19 +666,18 @@
               <a href="javascript:void(0)"><img class="thumb" src="assets/images/blog/3.jpg" alt="Blog" /></a>
               <div class="meta-details">
                 <img class="thumb" src="assets/images/blog/b6.jpg" alt="Author" />
-                <span>BY TIM NORTON</span>
+                <span>BY AMIT PATEL, CA</span>
               </div>
             </div>
             <div class="content-body">
               <h4 class="title">
                 <a href="javascript:void(0)">
-                  5 ways to improve user retention for your startup
+                  5 Essential Bookkeeping Practices for Growing Businesses
                 </a>
               </h4>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry. Lorem Ipsum has been the industry's
-                standard.
+                Master the fundamentals of bookkeeping with these proven practices that will help
+                you maintain accurate financial records and make informed business decisions.
               </p>
             </div>
           </div>
@@ -703,11 +696,11 @@
         <div class="row">
           <div class="col-12">
             <div class="content">
-              <h6>Meet our Clients</h6>
-              <h2 class="fw-bold">Our Awesome Clients</h2>
+              <h6>Trusted by Businesses</h6>
+              <h2 class="fw-bold">Our Valued Clients</h2>
               <p>
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form.
+                From startups to enterprises, businesses across India trust AccoMitra
+                for their accounting needs. Join our growing community of satisfied clients.
               </p>
             </div>
           </div>
@@ -722,22 +715,22 @@
         <div class="col-lg-8 offset-lg-2 col-12">
           <div class="clients-logos">
             <div class="single-image">
-              <img src="assets/images/client-logo/graygrids.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/graygrids.svg" alt="TechStart Solutions - Accounting Client" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/uideck.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/uideck.svg" alt="RetailMart India - Accounting Client" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/ayroui.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/ayroui.svg" alt="ManufacturingCorp - Accounting Client" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/lineicons.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/lineicons.svg" alt="FinanceFirst - Accounting Client" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/tailwindtemplates.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/tailwindtemplates.svg" alt="ServicePro - Accounting Client" />
             </div>
             <div class="single-image">
-              <img src="assets/images/client-logo/ecomhtml.svg" alt="Brand Logo Images" />
+              <img src="assets/images/client-logo/ecomhtml.svg" alt="EcommerceHub - Accounting Client" />
             </div>
           </div>
         </div>
@@ -760,8 +753,8 @@
                   </div>
                   <div class="contact-content">
                     <h4>Contact</h4>
-                    <p>0984537278623</p>
-                    <p>yourmail@gmail.com</p>
+                    <p>+91 98765 43210</p>
+                    <p>support@accomitra.com</p>
                   </div>
                 </div>
               </div>
@@ -772,8 +765,8 @@
                   </div>
                   <div class="contact-content">
                     <h4>Address</h4>
-                    <p>175 5th Ave, New York, NY 10010</p>
-                    <p>United States</p>
+                    <p>123 Business Park, Sector 5</p>
+                    <p>Mumbai, Maharashtra 400001</p>
                   </div>
                 </div>
               </div>
@@ -783,9 +776,9 @@
                     <i class="lni lni-alarm-clock"></i>
                   </div>
                   <div class="contact-content">
-                    <h4>Schedule</h4>
-                    <p>24 Hours / 7 Days Open</p>
-                    <p>Office time: 10 AM - 5:30 PM</p>
+                    <h4>Business Hours</h4>
+                    <p>Monday - Friday: 9 AM - 7 PM</p>
+                    <p>Saturday: 10 AM - 4 PM</p>
                   </div>
                 </div>
               </div>
@@ -799,11 +792,11 @@
                 <div class="section-title text-center">
                   <span> Get in Touch </span>
                   <h2>
-                    Ready to Get Started
+                    Ready to Connect with Accountants?
                   </h2>
                   <p>
-                    At vero eos et accusamus et iusto odio dignissimos ducimus
-                    quiblanditiis praesentium
+                    Have questions about our accounting services? Need help finding the right accountant?
+                    Contact us and we'll get back to you within 24 hours.
                   </p>
                 </div>
               </div>
@@ -873,12 +866,13 @@
                   </a>
                 </div>
                 <p>
-                  Making the world a better place through constructing elegant
-                  hierarchies.
+                  Connecting businesses with trusted accountants across India.
+                  Your reliable partner for all accounting and financial needs.
                 </p>
                 <p class="copyright-text">
-                  <span>© 2024 Ayro UI.</span>Designed and Developed by
-                  <a href="javascript:void(0)" rel="nofollow"> Ayro UI </a>. <br> Distributed by <a href="http://themewagon.com" target="_blank">ThemeWagon</a>
+                  <span>© 2024 AccoMitra.</span>All rights reserved. <br>
+                  <a href="javascript:void(0)" rel="nofollow">Privacy Policy</a> |
+                  <a href="javascript:void(0)" rel="nofollow">Terms of Service</a>
                 </p>
               </div>
               <!-- End Single Widget -->
@@ -886,12 +880,12 @@
             <div class="col-lg-2 col-md-6 col-12">
               <!-- Single Widget -->
               <div class="footer-widget f-link">
-                <h5>Solutions</h5>
+                <h5>Services</h5>
                 <ul>
-                  <li><a href="javascript:void(0)">Marketing</a></li>
-                  <li><a href="javascript:void(0)">Analytics</a></li>
-                  <li><a href="javascript:void(0)">Commerce</a></li>
-                  <li><a href="javascript:void(0)">Insights</a></li>
+                  <li><a href="javascript:void(0)">GST Filing</a></li>
+                  <li><a href="javascript:void(0)">Tax Returns</a></li>
+                  <li><a href="javascript:void(0)">Bookkeeping</a></li>
+                  <li><a href="javascript:void(0)">Payroll</a></li>
                 </ul>
               </div>
               <!-- End Single Widget -->
@@ -901,10 +895,10 @@
               <div class="footer-widget f-link">
                 <h5>Support</h5>
                 <ul>
-                  <li><a href="javascript:void(0)">Pricing</a></li>
-                  <li><a href="javascript:void(0)">Documentation</a></li>
-                  <li><a href="javascript:void(0)">Guides</a></li>
-                  <li><a href="javascript:void(0)">API Status</a></li>
+                  <li><a href="javascript:void(0)">Help Center</a></li>
+                  <li><a href="javascript:void(0)">Contact Us</a></li>
+                  <li><a href="javascript:void(0)">Accountant Guide</a></li>
+                  <li><a href="javascript:void(0)">Business Resources</a></li>
                 </ul>
               </div>
               <!-- End Single Widget -->
@@ -912,8 +906,8 @@
             <div class="col-lg-4 col-md-6 col-12">
               <!-- Single Widget -->
               <div class="footer-widget newsletter">
-                <h5>Subscribe</h5>
-                <p>Subscribe to our newsletter for the latest updates</p>
+                <h5>Stay Updated</h5>
+                <p>Get the latest accounting tips, tax updates, and business insights</p>
                 <form action="#" method="get" target="_blank" class="newsletter-form">
                   <input name="EMAIL" placeholder="Email address" required="required" type="email" />
                   <div class="button">
@@ -933,7 +927,7 @@
   </footer>
   <!--/ End Footer Area -->
 
-	
+
 
   <a href="#" class="scroll-top btn-hover">
     <i class="lni lni-chevron-up"></i>
@@ -986,60 +980,60 @@
       'autoplayVideos': true,
     });
 
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').catch(err => {
-        console.warn('SW registration failed:', err);
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js').catch(err => {
+          console.warn('SW registration failed:', err);
+        });
+      });
+    }
+
+    // Offline indicator
+    const offlineIndicator = document.getElementById('offline-indicator');
+    function updateOnlineStatus() {
+      if (navigator.onLine) {
+        offlineIndicator.style.display = 'none';
+      } else {
+        offlineIndicator.style.display = 'block';
+      }
+    }
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+    updateOnlineStatus();
+
+    // Add-to-Home-Screen (A2HS) prompt handling
+    let deferredPrompt;
+    const installBtn = document.getElementById('btn-install-pwa');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Prevent immediate prompt and show custom install button
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'inline-block';
+      installBtn.setAttribute('aria-hidden', 'false');
+    });
+
+    installBtn.addEventListener('click', async () => {
+      installBtn.style.display = 'none';
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      // Optionally track outcome: 'accepted' or 'dismissed'
+      deferredPrompt = null;
+    });
+
+    // Optional: track clicks on CTAs for analytics (placeholder)
+    document.querySelectorAll('.button a, .button button').forEach(el => {
+      el.addEventListener('click', () => {
+        // replace with your analytics function
+        // analytics.track('hero_cta_click', { text: el.textContent.trim() });
       });
     });
-  }
-
-  // Offline indicator
-  const offlineIndicator = document.getElementById('offline-indicator');
-  function updateOnlineStatus() {
-    if (navigator.onLine) {
-      offlineIndicator.style.display = 'none';
-    } else {
-      offlineIndicator.style.display = 'block';
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(() => console.log('✅ Service Worker Registered'))
+        .catch(err => console.error('SW registration failed:', err));
     }
-  }
-  window.addEventListener('online',  updateOnlineStatus);
-  window.addEventListener('offline', updateOnlineStatus);
-  updateOnlineStatus();
-
-  // Add-to-Home-Screen (A2HS) prompt handling
-  let deferredPrompt;
-  const installBtn = document.getElementById('btn-install-pwa');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    // Prevent immediate prompt and show custom install button
-    e.preventDefault();
-    deferredPrompt = e;
-    installBtn.style.display = 'inline-block';
-    installBtn.setAttribute('aria-hidden', 'false');
-  });
-
-  installBtn.addEventListener('click', async () => {
-    installBtn.style.display = 'none';
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    // Optionally track outcome: 'accepted' or 'dismissed'
-    deferredPrompt = null;
-  });
-
-  // Optional: track clicks on CTAs for analytics (placeholder)
-  document.querySelectorAll('.button a, .button button').forEach(el => {
-    el.addEventListener('click', () => {
-      // replace with your analytics function
-      // analytics.track('hero_cta_click', { text: el.textContent.trim() });
-    });
-  });
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(() => console.log('✅ Service Worker Registered'))
-      .catch(err => console.error('SW registration failed:', err));
-  }
   </script>
 </body>
 
