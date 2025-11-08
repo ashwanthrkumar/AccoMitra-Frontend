@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>AccoMitra | Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f6ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2a2a72;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        main {
+            padding: 1.5rem;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background: #2a2a72;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        button {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            color: white;
+            font-weight: 500;
+        }
+
+        .approve-btn {
+            background: #2e7d32;
+        }
+
+        .reject-btn {
+            background: #c62828;
+        }
+
+        .view-btn {
+            background: #1976d2;
+        }
+
+        .filter-select {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 0.95rem;
+        }
+
+        /* Reject Modal */
+        #rejectReasonModal,
+        #viewModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 400px;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: left;
+        }
+
+        #rejectReasonModal textarea {
+            width: 100%;
+            height: 80px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-family: 'Poppins';
+        }
+
+        .close-btn {
+            background: #999;
+            color: #fff;
+            float: right;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .doc-link {
+            display: block;
+            margin: 5px 0;
+            text-decoration: none;
+            color: #1976d2;
+            font-size: 0.9rem;
+        }
+
+        .doc-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>AccoMitra Admin Dashboard</h2>
+        <button id="logoutBtn" style="background:#b71c1c;">Logout</button>
+    </header>
+
+    <main>
+        <div style="margin-bottom: 15px;">
+            <label for="statusFilter">Filter by Status: </label>
+            <select id="statusFilter" class="filter-select">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+            </select>
+        </div>
+
+        <table id="accountantsTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Firm</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+
+    <!-- Reject Modal -->
+    <div id="rejectReasonModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeViewModal()">X</button>
+            <h3>Reject Accountant</h3>
+            <textarea id="rejectReason" placeholder="Enter rejection reason..."></textarea>
+            <button id="confirmRejectBtn" class="reject-btn">Confirm Reject</button>
+        </div>
+    </div>
+
+    <!-- View Accountant Modal -->
+    <div id="viewModal">
+        <div class="modal-content" id="viewModalContent">
+            <button class="close-btn" onclick="closeViewModal()">×</button>
+            <h3>Accountant Details</h3>
+            <div id="accountantDetails"></div>
+        </div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD5Rda8GzjQhbegWPcT6Q-atfbmpb6enc4",
+            authDomain: "accomitra-477605.firebaseapp.com",
+            projectId: "accomitra-477605",
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        const BACKEND_URL = ":8080/api/admin";
+
+        const ALLOWED_ADMINS = ["ashwanthrkumar@gmail.com", "accomitra.admin@gmail.com"];
+
+        const tableBody = document.querySelector("#accountantsTable tbody");
+        const statusFilter = document.getElementById("statusFilter");
+        const rejectModal = document.getElementById("rejectReasonModal");
+        const rejectReasonInput = document.getElementById("rejectReason");
+        const confirmRejectBtn = document.getElementById("confirmRejectBtn");
+        const viewModal = document.getElementById("viewModal");
+        const accountantDetailsDiv = document.getElementById("accountantDetails");
+        let accountants = [];
+        let selectedAccountantId = null;
+
+        onAuthStateChanged(auth, async (user) => {
+            if (!user || !ALLOWED_ADMINS.includes(user.email)) {
+                alert("Unauthorized access!");
+                window.location.href = "admin-adm.html";
+            } else {
+                await loadAccountants();
+            }
+        });
+
+        async function loadAccountants() {
+            tableBody.innerHTML = "<tr><td colspan='6'>Loading...</td></tr>";
+            try {
+                const res = await fetch(`${BACKEND_URL}/accountants`);
+                const data = await res.json();
+                accountants = data;
+                renderTable();
+            } catch (error) {
+                console.error("Fetch error:", error);
+                tableBody.innerHTML = "<tr><td colspan='6'>Error loading data.</td></tr>";
+            }
+        }
+
+        function renderTable() {
+            const filter = statusFilter.value;
+            tableBody.innerHTML = "";
+
+            const filtered = accountants.filter(acc =>
+                filter === "all" ? true : acc.status === filter
+            );
+
+            if (filtered.length === 0) {
+                tableBody.innerHTML = "<tr><td colspan='6'>No records found.</td></tr>";
+                return;
+            }
+
+            filtered.forEach(acc => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+          <td>${acc.name || "-"}</td>
+          <td>${acc.email}</td>
+          <td>${acc.firm_name}</td>
+          <td>${acc.registrationType}</td>
+          <td>${acc.status}</td>
+          <td>
+            <button class="view-btn" data-id="${acc.id}">View</button>
+            ${acc.status === "pending"
+                        ? `<button class="approve-btn" data-id="${acc.id}">Approve</button>
+                   <button class="reject-btn" data-id="${acc.id}">Reject</button>`
+                        : ""
+                    }
+          </td>`;
+                tableBody.appendChild(row);
+            });
+        }
+
+        statusFilter.addEventListener("change", renderTable);
+
+        tableBody.addEventListener("click", (event) => {
+            const btn = event.target.closest("button");
+            if (!btn) return;
+            const id = btn.dataset.id;
+            if (!id) return;
+
+            if (btn.classList.contains("view-btn")) {
+                openViewModal(id);
+            } else if (btn.classList.contains("approve-btn")) {
+                approve(id);
+            } else if (btn.classList.contains("reject-btn")) {
+                openRejectModal(id);
+            }
+        });
+
+        async function approve(id) {
+            try {
+                await fetch(`${BACKEND_URL}/accountants/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: "approved" }),
+                });
+                alert("✅ Accountant approved");
+                await loadAccountants();
+            } catch (error) {
+                console.error(error);
+                alert("Error approving accountant.");
+            }
+        }
+
+        function openRejectModal(id) {
+            selectedAccountantId = id;
+            rejectReasonInput.value = "";
+            rejectModal.style.display = "flex";
+        }
+
+        // ✅ Make both close functions accessible globally
+        window.closeViewModal = function () {
+            viewModal.style.display = "none";
+        };
+
+        window.closeRejectModal = function () {
+            rejectModal.style.display = "none";
+        };
+
+        // ✅ Global click handler — close modals when clicking outside
+        window.addEventListener("click", (event) => {
+            const isViewOpen = viewModal.style.display === "flex";
+            const isRejectOpen = rejectModal.style.display === "flex";
+
+            // If clicked outside the modal content area, close whichever is open
+            if (isViewOpen && event.target === viewModal) {
+                window.closeViewModal();
+            }
+
+            if (isRejectOpen && event.target === rejectModal) {
+                window.closeRejectModal();
+            }
+        });
+
+
+
+        confirmRejectBtn.addEventListener("click", async () => {
+            const reason = rejectReasonInput.value.trim();
+            if (!reason) return alert("Please provide a rejection reason.");
+            try {
+                await fetch(`${BACKEND_URL}/accountants/${selectedAccountantId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ status: "rejected", rejectionReason: reason }),
+                });
+                closeRejectModal();
+                alert("❌ Accountant rejected.");
+                await loadAccountants();
+            } catch (error) {
+                console.error(error);
+                alert("Error rejecting accountant.");
+            }
+        });
+
+        // 🔹 View accountant modal
+        async function openViewModal(id) {
+            const acc = accountants.find(a => a.id === id);
+            if (!acc) return alert("Accountant not found");
+
+            // Load signed URLs dynamically
+            let signedUrls = {};
+            try {
+                const res = await fetch(`${BACKEND_URL}/accountants/${id}/documents`);
+                const data = await res.json();
+                signedUrls = data.signedUrls || {};
+            } catch (err) {
+                console.error("Error fetching signed URLs:", err);
+            }
+
+            accountantDetailsDiv.innerHTML = `
+    <p><strong>Name:</strong> ${acc.name}</p>
+    <p><strong>Email:</strong> ${acc.email}</p>
+    <p><strong>Phone:</strong> ${acc.phone || "-"}</p>
+    <p><strong>Firm:</strong> ${acc.firm_name}</p>
+    <p><strong>Type:</strong> ${acc.registrationType}</p>
+    <p><strong>Experience:</strong> ${acc.experience || 0} years</p>
+    <p><strong>Specialization:</strong> ${acc.specialization || "-"}</p>
+    <p><strong>Status:</strong> ${acc.status}</p>
+    ${acc.rejectionReason ? `<p><strong>Rejection Reason:</strong> ${acc.rejectionReason}</p>` : ""}
+    <h4>Documents:</h4>
+    ${Object.keys(signedUrls).length > 0
+                    ? Object.entries(signedUrls)
+                        .map(([key, url]) => `<a href="${url}" class="doc-link" target="_blank">${key}.pdf</a>`)
+                        .join("")
+                    : "<p>No documents available.</p>"
+                }
+  `;
+            viewModal.style.display = "flex";
+        }
+
+
+
+
+
+        document.getElementById("logoutBtn").addEventListener("click", async () => {
+            await signOut(auth);
+            window.location.href = "admin-login.html";
+        });
+    </script>
+</body>
+
+</html>

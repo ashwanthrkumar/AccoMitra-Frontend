@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AccoMitra | Accountant Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a72;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #23235b;
+        }
+
+        small {
+            display: block;
+            color: #555;
+            margin-top: 10px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Accountant Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+        <small>🔒 Only approved accountants can log in.</small>
+    </div>
+
+    <script>
+        const BACKEND_URL = ":8080"; // change to your Cloud Run URL in production
+
+        document.getElementById("loginForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const credentials = {
+                email: document.getElementById("email").value.trim(),
+                password: document.getElementById("password").value.trim(),
+            };
+
+            try {
+                const res = await fetch(`${BACKEND_URL}/api/accountants/login`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(credentials),
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert("✅ Login successful!");
+                    localStorage.setItem("accountantEmail", credentials.email);
+                    window.location.href = "marketplace.html"; // or dashboard page
+                } else {
+                    alert("❌ " + data.message);
+                }
+            } catch (err) {
+                console.error("Network error:", err);
+                alert("Network error. Please try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AccoMitra | Accountant Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 420px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #2a2a72;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: #23235b;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        small {
+            display: block;
+            color: #444;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="registerForm">
+        <h2>Accountant Registration</h2>
+
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Phone Number" required />
+        <input type="password" id="password" placeholder="Create Password" required minlength="6" />
+
+        <input type="text" id="firm_name" placeholder="Firm Name" required />
+        <input type="text" id="specialization" placeholder="Specialization" required />
+        <input type="number" id="experience" placeholder="Experience (years)" required />
+
+        <label>Registration Type</label>
+        <select id="registrationType" required>
+            <option value="">Select Type</option>
+            <option value="CA">CA (Chartered Accountant)</option>
+            <option value="Non-CA">Non-CA (Consultant, Bookkeeper, etc.)</option>
+        </select>
+
+        <div id="caFields" class="hidden">
+            <input type="text" id="ca_number" placeholder="CA Number" />
+            <label>CA Certificate (PDF)</label>
+            <input type="file" id="caCertificate" accept=".pdf" />
+        </div>
+
+        <div id="nonCaFields" class="hidden">
+            <label>Qualification Proof (PDF)</label>
+            <input type="file" id="qualificationProof" accept=".pdf" />
+        </div>
+
+        <label>ID Proof (PDF)</label>
+        <input type="file" id="idProof" accept=".pdf" required />
+
+        <button type="submit">Submit Registration</button>
+
+        <small>ℹ️ Use the same email and password to log in later after your account is approved.</small>
+    </form>
+
+    <script>
+        // Toggle CA / Non-CA fields
+        const regType = document.getElementById("registrationType");
+        regType.addEventListener("change", () => {
+            document.getElementById("caFields").classList.toggle("hidden", regType.value !== "CA");
+            document.getElementById("nonCaFields").classList.toggle("hidden", regType.value !== "Non-CA");
+        });
+
+        const BACKEND_URL = ":8080";
+
+        // Handle form submission
+        document.getElementById("registerForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const nameField = document.getElementById("name");
+            const formData = new FormData();
+            formData.append("name", nameField.value);
+            formData.append("email", email.value);
+            formData.append("phone", phone.value);
+            formData.append("password", password.value); // ✅ Include password
+            formData.append("firm_name", firm_name.value);
+            formData.append("specialization", specialization.value);
+            formData.append("experience", experience.value);
+            formData.append("registrationType", registrationType.value);
+            formData.append("idProof", idProof.files[0]);
+
+            if (registrationType.value === "CA") {
+                formData.append("ca_number", ca_number.value);
+                if (caCertificate.files[0]) formData.append("caCertificate", caCertificate.files[0]);
+            } else if (registrationType.value === "Non-CA") {
+                if (qualificationProof.files[0]) formData.append("qualificationProof", qualificationProof.files[0]);
+            }
+
+            console.log("Files:", formData.files);
+            console.log("Body:", formData.body);
+
+
+            try {
+                const res = await fetch(`${BACKEND_URL}/api/accountants/register`, {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await res.json();
+                if (res.ok) {
+                    alert("✅ " + data.message + "\n\nYou can use your email and password to log in after approval.");
+                    window.location.href = "login.html";
+                } else {
+                    alert("❌ Error: " + data.message);
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Network or server error.");
+            }
+        });
+    </script>
+</body>
+
+</html>

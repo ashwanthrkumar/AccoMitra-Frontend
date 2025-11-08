@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AccoMitra | Admin Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #dce1ff);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .admin-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+    h2 { color: #2a2a72; margin-bottom: 1rem; }
+    .btn-google {
+      background-color: white;
+      color: #444;
+      border: 1px solid #ddd;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-google:hover {
+      background-color: #f7f7f7;
+    }
+    .error-message {
+      background-color: #ffe5e5;
+      color: #b00020;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>Admin Login</h2>
+    <button id="googleLogin" class="btn-google">
+      <i class="lni lni-google"></i> Sign in with Google
+    </button>
+    <div id="errorMessage" class="error-message"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // 🔹 Your Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5Rda8GzjQhbegWPcT6Q-atfbmpb6enc4",
+      authDomain: "accomitra-477605.firebaseapp.com",
+      projectId: "accomitra-477605",
+    };
+
+    // 🔹 Allowed admin emails
+    const ALLOWED_ADMINS = [
+      "ashwanthrkumar@gmail.com",
+      "ashwanthrkumar531@gmail.com" // 👈 replace this with your second admin email
+    ];
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const showError = (msg) => {
+      const el = document.getElementById("errorMessage");
+      el.textContent = msg;
+      el.style.display = "block";
+      setTimeout(() => (el.style.display = "none"), 4000);
+    };
+
+    // 🔹 Handle Google Sign-In
+    document.getElementById("googleLogin").addEventListener("click", async () => {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        if (ALLOWED_ADMINS.includes(user.email)) {
+          console.log("✅ Admin logged in:", user.email);
+          window.location.href = "admin-dashboard.html"; // redirect to admin panel
+        } else {
+          showError("❌ Unauthorized email. Access denied.");
+          await signOut(auth);
+        }
+      } catch (err) {
+        console.error("Login error:", err);
+        showError("Login failed. Try again.");
+      }
+    });
+  </script>
+</body>
+</html>
