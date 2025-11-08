@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AccoMitra | Sign In</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #dce1ff);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+    .login-container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+      width: 380px;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 { font-size: 1.8rem; color: #2a2a72; margin-bottom: 0.3rem; }
+    p { color: #555; margin-bottom: 1.5rem; }
+    .form-group { text-align: left; margin-bottom: 1rem; }
+    label { font-weight: 500; display: block; margin-bottom: 5px; }
+    input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 0.95rem; }
+    .login-button { width: 100%; padding: 12px; margin-top: 10px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+    .btn-email { background-color: #2a2a72; color: white; }
+    .btn-email:hover { background-color: #23235b; }
+    .btn-google { background-color: white; color: #444; border: 1px solid #ddd; }
+    .btn-google:hover { background-color: #f7f7f7; }
+    .divider { margin: 15px 0; display: flex; align-items: center; text-align: center; }
+    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #ddd; }
+    .divider span { padding: 0 10px; font-size: 0.9rem; color: #777; }
+    .error-message, .success-message { padding: 8px 10px; border-radius: 8px; margin-bottom: 10px; display: none; font-size: 0.9rem; }
+    .error-message { background-color: #ffe5e5; color: #b00020; }
+    .success-message { background-color: #e8f5e9; color: #2e7d32; }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Welcome Back</h1>
+    <p>Sign in to continue to AccoMitra</p>
+
+    <div id="errorMessage" class="error-message"></div>
+    <div id="successMessage" class="success-message"></div>
+
+    <!-- Login Form -->
+    <form id="emailLoginForm">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="loginPassword" required />
+      </div>
+      <button type="submit" class="login-button btn-email">Sign In</button>
+    </form>
+
+    <div class="divider"><span>OR</span></div>
+    <button id="googleLogin" class="login-button btn-google">
+      <i class="lni lni-google"></i> Sign in with Google
+    </button>
+
+    <p style="margin-top: 1rem; font-size: 0.9rem;">
+      Don't have an account? <a href="signup.html" style="color: #2a2a72; text-decoration: none;">Sign Up</a>
+    </p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signInWithEmailAndPassword,
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+    // 🔹 Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5Rda8GzjQhbegWPcT6Q-atfbmpb6enc4",
+      authDomain: "accomitra-477605.firebaseapp.com",
+      projectId: "accomitra-477605",
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+  
+    // 🔹 UI Helpers
+    const showMessage = (msg, color = "#1a73e8", bg = "#e3f2fd") => {
+      const el = document.getElementById("successMessage");
+      el.textContent = msg;
+      el.style.display = "block";
+      el.style.backgroundColor = bg;
+      el.style.color = color;
+    };
+  
+    const showError = (msg) => {
+      const el = document.getElementById("errorMessage");
+      el.textContent = msg;
+      el.style.display = "block";
+      setTimeout(() => (el.style.display = "none"), 4000);
+    };
+  
+    const hideMessages = () => {
+      document.getElementById("errorMessage").style.display = "none";
+      document.getElementById("successMessage").style.display = "none";
+    };
+  
+    // 🔹 Register user via backend only (no Firestore access from frontend)
+    const registerUser = async (user) => {
+      try {
+        showMessage("Syncing your account details...");
+  
+        const response = await fetch("http://localhost:8080/api/users/register", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            uid: user.uid,
+            name: user.displayName || "Unnamed User",
+            email: user.email,
+          }),
+        });
+  
+        if (!response.ok) throw new Error("Backend registration failed");
+  
+        console.log("✅ User synced via backend:", user.email);
+        showMessage("Signed in successfully! Redirecting...", "#2e7d32", "#e8f5e9");
+  
+        setTimeout(() => {
+          window.location.href = "marketplace.html";
+        }, 1000);
+      } catch (err) {
+        console.error("❌ Register error:", err);
+        showError("Failed to sync user account.");
+      }
+    };
+  
+    // 🔹 Email/password login
+    document.getElementById("emailLoginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      hideMessages();
+  
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+  
+      try {
+        showMessage("Signing you in...");
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        await registerUser(cred.user);
+      } catch (err) {
+        console.error("Login Error:", err);
+        showError(err.message);
+      }
+    });
+  
+    // 🔹 Google login
+    document.getElementById("googleLogin").addEventListener("click", async () => {
+      hideMessages();
+      try {
+        showMessage("Signing in with Google...");
+        const cred = await signInWithPopup(auth, provider);
+        await registerUser(cred.user);
+      } catch (err) {
+        console.error("Google Login Error:", err);
+        showError(err.message);
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>

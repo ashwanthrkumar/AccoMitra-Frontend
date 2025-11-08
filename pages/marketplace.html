@@ -78,6 +78,10 @@
                                     <a href="auth.html" class="sign-in-link">SIGN IN</a>
                                 </li>
                             </ul>
+                            <ul><li><button id="logoutBtn" class="btn btn-outline-danger">
+                                <i class="lni lni-exit"></i> Logout
+                              </button>
+                              </li></ul>
                         </div>
 
                         <div class="navbar-btn d-none d-lg-inline-block">
@@ -648,7 +652,49 @@
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/tiny-slider.js"></script>
     <script src="../assets/js/marketplace.js"></script>
-
+<!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import {
+      getAuth,
+      onAuthStateChanged,
+      signOut,
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+  
+    // 🔥 Use the SAME Firebase config as in auth.html
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5Rda8GzjQhbegWPcT6Q-atfbmpb6enc4",
+      authDomain: "accomitra-477605.firebaseapp.com",
+      projectId: "accomitra-477605",
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+  
+    // 🧭 Redirect user to login if not logged in
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "auth.html"; // redirect to login if not signed in
+      } else {
+        console.log("Logged in as:", user.email);
+      }
+    });
+  
+    // 🚪 Logout button
+    const logoutBtn = document.getElementById("logoutBtn");
+    logoutBtn.addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+        alert("Logged out successfully!");
+        window.location.href = "login.html"; // redirect after logout
+      } catch (error) {
+        console.error("Logout error:", error);
+        alert("Failed to log out. Please try again.");
+      }
+    });
+  </script>
+  
 </body>
 
 </html>

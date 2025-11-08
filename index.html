@@ -1047,7 +1047,18 @@
         .then(() => console.log('✅ Service Worker Registered'))
         .catch(err => console.error('SW registration failed:', err));
     }
+    
   </script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let reg of registrations) {
+          reg.unregister().then(() => console.log("✅ Service worker unregistered:", reg.scope));
+        }
+      });
+    }
+    </script>
+    
 </body>
 
 </html>
