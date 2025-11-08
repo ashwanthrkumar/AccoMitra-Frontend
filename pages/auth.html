@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description"
+        content="AccoMitra - Sign in or create account to connect with trusted accountants across India" />
+    <meta name="keywords" content="accountant login, sign up, accounting services, GST filing, tax returns, India" />
+    <meta name="author" content="AccoMitra" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="manifest" href="../manifest.json">
+
+    <!--====== Title ======-->
+    <title>Sign In | AccoMitra - Connect with Trusted Accountants</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg" />
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="../assets/css/lineicons.css" />
+
+    <!--====== Custom Auth CSS ======-->
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+    <!--====== AUTH SECTION START ======-->
+    <section class="auth-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="auth-wrapper">
+                        <!-- Logo -->
+                        <div class="auth-logo text-center mb-4">
+                            <a href="../index.html">
+                                <img src="../assets/images/logo.png" alt="AccoMitra Logo" width="120" />
+                            </a>
+                            <h3 class="mt-3 mb-2">Welcome to AccoMitra</h3>
+                            <p class="text-muted">Connect with trusted accountants across India</p>
+                        </div>
+
+                        <!-- Auth Tabs -->
+                        <div class="auth-tabs">
+                            <ul class="nav nav-pills nav-fill" id="authTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab"
+                                        data-bs-target="#login" type="button" role="tab" aria-controls="login"
+                                        aria-selected="true">
+                                        Sign In
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="signup-tab" data-bs-toggle="tab"
+                                        data-bs-target="#signup" type="button" role="tab" aria-controls="signup"
+                                        aria-selected="false">
+                                        Create Account
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="authTabContent">
+                            <!-- Login Tab -->
+                            <div class="tab-pane fade show active" id="login" role="tabpanel"
+                                aria-labelledby="login-tab">
+                                <div class="auth-form">
+                                    <!-- Social Login Buttons -->
+                                    <div class="social-login mb-4">
+                                        <h6 class="text-center mb-3">Sign in with</h6>
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-danger w-100 social-btn"
+                                                    id="googleLogin">
+                                                    <i class="lni lni-google"></i>
+                                                    <span class="d-none d-sm-inline">Google</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-primary w-100 social-btn"
+                                                    id="linkedinLogin">
+                                                    <i class="lni lni-linkedin-original"></i>
+                                                    <span class="d-none d-sm-inline">LinkedIn</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-primary w-100 social-btn"
+                                                    id="facebookLogin">
+                                                    <i class="lni lni-facebook-filled"></i>
+                                                    <span class="d-none d-sm-inline">Facebook</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    
+                                    </div>
+
+                                   
+                                </div>
+                            </div>
+
+                            <!-- Signup Tab -->
+                            <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
+                                <div class="auth-form">
+                                    <!-- Social Signup Buttons -->
+                                    <div class="social-login mb-4">
+                                        <h6 class="text-center mb-3">Sign up with</h6>
+                                        <div class="row g-3">
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-danger w-100 social-btn"
+                                                    id="googleSignup">
+                                                    <i class="lni lni-google"></i>
+                                                    <span class="d-none d-sm-inline">Google</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-primary w-100 social-btn"
+                                                    id="linkedinSignup">
+                                                    <i class="lni lni-linkedin-original"></i>
+                                                    <span class="d-none d-sm-inline">LinkedIn</span>
+                                                </button>
+                                            </div>
+                                            <div class="col-4">
+                                                <button class="btn btn-outline-primary w-100 social-btn"
+                                                    id="facebookSignup">
+                                                    <i class="lni lni-facebook-filled"></i>
+                                                    <span class="d-none d-sm-inline">Facebook</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Back to Home -->
+                        <div class="text-center mt-4">
+                            <a href="../index.html" class="text-decoration-none">
+                                <i class="lni lni-arrow-left"></i> Back to Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== AUTH SECTION END ======-->
+
+    <!--====== js ======-->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Social Login Scripts -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://platform.linkedin.com/in.js" async defer></script>
+    <script src="https://connect.facebook.net/en_US/sdk.js" async defer></script>
+
+    <script>
+        // Form validation
+        (function () {
+            'use strict';
+            window.addEventListener('load', function () {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+
+        // Password toggle functionality
+        document.getElementById('toggleLoginPassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('loginPassword');
+            const icon = this.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('lni-eye');
+                icon.classList.add('lni-eye-off');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('lni-eye-off');
+                icon.classList.add('lni-eye');
+            }
+        });
+
+        document.getElementById('toggleSignupPassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('signupPassword');
+            const icon = this.querySelector('i');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                icon.classList.remove('lni-eye');
+                icon.classList.add('lni-eye-off');
+            } else {
+                passwordField.type = 'password';
+                icon.classList.remove('lni-eye-off');
+                icon.classList.add('lni-eye');
+            }
+        });
+
+        // Password confirmation validation
+        document.getElementById('confirmPassword').addEventListener('input', function () {
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = this.value;
+
+            if (password !== confirmPassword) {
+                this.setCustomValidity('Passwords do not match');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+
+        // Social Login Handlers
+        // Google Login
+        document.getElementById('googleLogin').addEventListener('click', function () {
+            // Initialize Google Sign-In
+            google.accounts.id.initialize({
+                client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your Google Client ID
+                callback: handleGoogleResponse
+            });
+            google.accounts.id.prompt();
+        });
+
+        document.getElementById('googleSignup').addEventListener('click', function () {
+            google.accounts.id.initialize({
+                client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your Google Client ID
+                callback: handleGoogleResponse
+            });
+            google.accounts.id.prompt();
+        });
+
+        function handleGoogleResponse(response) {
+            // Handle Google authentication response
+            console.log('Google response:', response);
+            // Here you would typically send the response to your backend
+            // window.location.href = '/dashboard';
+        }
+
+        // LinkedIn Login
+        document.getElementById('linkedinLogin').addEventListener('click', function () {
+            // LinkedIn OAuth implementation
+            window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_LINKEDIN_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&state=random_state&scope=r_liteprofile%20r_emailaddress';
+        });
+
+        document.getElementById('linkedinSignup').addEventListener('click', function () {
+            window.location.href = 'https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=YOUR_LINKEDIN_CLIENT_ID&redirect_uri=YOUR_REDIRECT_URI&state=random_state&scope=r_liteprofile%20r_emailaddress';
+        });
+
+        // Facebook Login
+        document.getElementById('facebookLogin').addEventListener('click', function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    console.log('Facebook login successful:', response);
+                    // Handle successful login
+                } else {
+                    console.log('Facebook login cancelled');
+                }
+            }, { scope: 'email' });
+        });
+
+        document.getElementById('facebookSignup').addEventListener('click', function () {
+            FB.login(function (response) {
+                if (response.authResponse) {
+                    console.log('Facebook signup successful:', response);
+                    // Handle successful signup
+                } else {
+                    console.log('Facebook signup cancelled');
+                }
+            }, { scope: 'email' });
+        });
+
+        // Facebook SDK initialization
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: 'YOUR_FACEBOOK_APP_ID', // Replace with your Facebook App ID
+                cookie: true,
+                xfbml: true,
+                version: 'v18.0'
+            });
+        };
+
+        // Form submission handlers
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Handle login form submission
+            console.log('Login form submitted');
+            // Add your login logic here
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Handle signup form submission
+            console.log('Signup form submitted');
+            // Add your signup logic here
+        });
+
+        // Forgot password handler
+        document.getElementById('forgotPassword').addEventListener('click', function (e) {
+            e.preventDefault();
+            alert('Password reset functionality will be implemented here');
+        });
+    </script>
+</body>
+
+</html>

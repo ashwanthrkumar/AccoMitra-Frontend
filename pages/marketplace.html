@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--====== Required meta tags ======-->
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description"
+        content="AccoMitra Marketplace - Find verified accountants and accounting professionals. Browse profiles, read reviews, and connect with trusted accounting experts for GST filing, tax returns, and business advisory." />
+    <meta name="keywords"
+        content="accountant marketplace, chartered accountant, GST filing, tax returns, bookkeeping, accounting services, CA profiles, verified accountants" />
+    <meta name="author" content="AccoMitra" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="manifest" href="../manifest.json">
+
+    <!--====== Title ======-->
+    <title>Accountant Marketplace - Find Verified Professionals | AccoMitra</title>
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="../assets/images/favicon.svg" type="image/svg" />
+
+    <!--====== Bootstrap css ======-->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+
+    <!--====== Line Icons css ======-->
+    <link rel="stylesheet" href="../assets/css/lineicons.css" />
+
+    <!--====== Tiny Slider css ======-->
+    <link rel="stylesheet" href="../assets/css/tiny-slider.css" />
+
+    <!--====== gLightBox css ======-->
+    <link rel="stylesheet" href="../assets/css/glightbox.min.css" />
+
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../assets/css/marketplace.css" />
+</head>
+
+<body>
+
+    <!--====== NAVBAR NINE PART START ======-->
+    <section class="navbar-area navbar-nine">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="../index.html">
+                            <img src="../assets/images/white.png" alt="Logo" width="100" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNine" aria-controls="navbarNine" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="../index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="../index.html#services">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="../index.html#pricing">Pricing</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="../index.html#blog">Resources</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="page-scroll" href="../index.html#contact">Contact</a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a href="auth.html" class="sign-in-link">SIGN IN</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="navbar-btn d-none d-lg-inline-block">
+                            <a class="menu-bar" href="#side-menu-left"><i class="lni lni-menu"></i></a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== NAVBAR NINE PART ENDS ======-->
+
+    <!--====== MARKETPLACE HERO START ======-->
+    <section class="marketplace-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="hero-content">
+                        <h1>Find Your Perfect Accountant</h1>
+                        <p>Browse verified accounting professionals, read reviews, and connect with trusted experts for
+                            all your business needs.</p>
+
+                        <!-- Search Bar -->
+                        <div class="search-container">
+                            <div class="search-bar">
+                                <div class="search-input-group">
+                                    <i class="lni lni-search"></i>
+                                    <input type="text" placeholder="Search by name, location, or expertise..."
+                                        id="searchInput">
+                                    <button class="search-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== MARKETPLACE HERO ENDS ======-->
+
+    <!--====== FILTERS SECTION START ======-->
+    <section class="filters-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="filters-container">
+                        <div class="filter-group">
+                            <label>Location</label>
+                            <select class="filter-select" id="locationFilter">
+                                <option value="">All Locations</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="pune">Pune</option>
+                                <option value="kolkata">Kolkata</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Expertise</label>
+                            <select class="filter-select" id="expertiseFilter">
+                                <option value="">All Services</option>
+                                <option value="gst">GST Filing</option>
+                                <option value="tax">Tax Returns</option>
+                                <option value="bookkeeping">Bookkeeping</option>
+                                <option value="audit">Audit & Assurance</option>
+                                <option value="payroll">Payroll Management</option>
+                                <option value="advisory">Business Advisory</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Experience</label>
+                            <select class="filter-select" id="experienceFilter">
+                                <option value="">Any Experience</option>
+                                <option value="0-2">0-2 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="6-10">6-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Rating</label>
+                            <select class="filter-select" id="ratingFilter">
+                                <option value="">Any Rating</option>
+                                <option value="5">5 Stars</option>
+                                <option value="4">4+ Stars</option>
+                                <option value="3">3+ Stars</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label>Price Range</label>
+                            <select class="filter-select" id="priceFilter">
+                                <option value="">Any Price</option>
+                                <option value="0-5000">₹0 - ₹5,000</option>
+                                <option value="5000-15000">₹5,000 - ₹15,000</option>
+                                <option value="15000-30000">₹15,000 - ₹30,000</option>
+                                <option value="30000+">₹30,000+</option>
+                            </select>
+                        </div>
+
+                        <button class="clear-filters-btn" onclick="clearFilters()">Clear All</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== FILTERS SECTION ENDS ======-->
+
+    <!--====== ACCOUNTANTS GRID START ======-->
+    <section class="accountants-grid-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-header">
+                        <h2>Verified Accountants</h2>
+                        <p>Showing <span id="resultsCount">24</span> accountants</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="accountantsGrid">
+                <!-- Accountant Card 1 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="mumbai" data-expertise="gst,tax"
+                    data-experience="6-10" data-rating="5" data-price="5000-15000">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-1.jpg" alt="Rajesh Kumar" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Rajesh Kumar</h3>
+                                <p class="designation">Chartered Accountant (CA)</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                    </div>
+                                    <span class="rating-text">5.0 (127 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Mumbai, Maharashtra</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>8 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">GST Filing</span>
+                                <span class="specialization-tag">Tax Returns</span>
+                                <span class="specialization-tag">Audit</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹8,000</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accountant Card 2 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="delhi"
+                    data-expertise="bookkeeping,payroll" data-experience="3-5" data-rating="4" data-price="0-5000">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-2.jpg" alt="Priya Sharma" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Priya Sharma</h3>
+                                <p class="designation">Chartered Accountant (CA)</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star"></i>
+                                    </div>
+                                    <span class="rating-text">4.2 (89 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Delhi, NCR</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>4 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">Bookkeeping</span>
+                                <span class="specialization-tag">Payroll</span>
+                                <span class="specialization-tag">GST Filing</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹3,500</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accountant Card 3 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="bangalore"
+                    data-expertise="advisory,audit" data-experience="10+" data-rating="5" data-price="15000-30000">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-3.jpg" alt="Amit Patel" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Amit Patel</h3>
+                                <p class="designation">Senior Chartered Accountant</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                    </div>
+                                    <span class="rating-text">4.9 (203 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Bangalore, Karnataka</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>12 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">Business Advisory</span>
+                                <span class="specialization-tag">Audit</span>
+                                <span class="specialization-tag">Tax Planning</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹18,000</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accountant Card 4 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="chennai" data-expertise="tax,gst"
+                    data-experience="6-10" data-rating="4" data-price="5000-15000">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-4.jpg" alt="Sneha Reddy" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Sneha Reddy</h3>
+                                <p class="designation">Chartered Accountant (CA)</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star"></i>
+                                    </div>
+                                    <span class="rating-text">4.3 (156 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Chennai, Tamil Nadu</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>7 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">Tax Returns</span>
+                                <span class="specialization-tag">GST Filing</span>
+                                <span class="specialization-tag">Compliance</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹6,500</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accountant Card 5 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="hyderabad"
+                    data-expertise="bookkeeping,payroll" data-experience="3-5" data-rating="5" data-price="0-5000">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-5.jpg" alt="Vikram Singh" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Vikram Singh</h3>
+                                <p class="designation">Chartered Accountant (CA)</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                    </div>
+                                    <span class="rating-text">4.8 (92 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Hyderabad, Telangana</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>5 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">Bookkeeping</span>
+                                <span class="specialization-tag">Payroll</span>
+                                <span class="specialization-tag">GST Filing</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹4,200</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accountant Card 6 -->
+                <div class="col-lg-4 col-md-6 col-12 accountant-card" data-location="pune" data-expertise="advisory,tax"
+                    data-experience="10+" data-rating="5" data-price="30000+">
+                    <div class="accountant-profile-card">
+                        <div class="profile-header">
+                            <div class="profile-image">
+                                <img src="../assets/images/accountants/accountant-6.jpg" alt="Meera Joshi" />
+                                <div class="verified-badge">
+                                    <i class="lni lni-checkmark-circle"></i>
+                                </div>
+                            </div>
+                            <div class="profile-info">
+                                <h3>Meera Joshi</h3>
+                                <p class="designation">Senior Chartered Accountant</p>
+                                <div class="rating">
+                                    <div class="stars">
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                        <i class="lni lni-star-filled"></i>
+                                    </div>
+                                    <span class="rating-text">4.9 (178 reviews)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-details">
+                            <div class="location">
+                                <i class="lni lni-map-marker"></i>
+                                <span>Pune, Maharashtra</span>
+                            </div>
+                            <div class="experience">
+                                <i class="lni lni-briefcase"></i>
+                                <span>15 years experience</span>
+                            </div>
+                            <div class="specializations">
+                                <span class="specialization-tag">Business Advisory</span>
+                                <span class="specialization-tag">Tax Planning</span>
+                                <span class="specialization-tag">Audit</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-footer">
+                            <div class="pricing">
+                                <span class="price-label">Starting from</span>
+                                <span class="price">₹35,000</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                                <button class="btn btn-primary btn-sm">Contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btn-outline-primary load-more-btn">Load More Accountants</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== ACCOUNTANTS GRID ENDS ======-->
+
+    <!--====== CTA SECTION START ======-->
+    <section class="marketplace-cta">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <div class="cta-content">
+                        <h2>Are You an Accountant?</h2>
+                        <p>Join our marketplace and connect with businesses looking for accounting services. Grow your
+                            practice with AccoMitra.</p>
+                        <div class="cta-buttons">
+                            <a href="auth.html" class="btn btn-primary">Join as Accountant</a>
+                            <a href="../index.html#contact" class="btn btn-outline-light">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--====== CTA SECTION ENDS ======-->
+
+    <!-- Start Footer Area -->
+    <footer class="footer-area footer-eleven">
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="footer-widget f-about">
+                                <div class="logo">
+                                    <a href="../index.html">
+                                        <img src="../assets/images/logo.svg" alt="#" class="img-fluid" />
+                                    </a>
+                                </div>
+                                <p>
+                                    Connecting businesses with trusted accountants across India.
+                                    Your reliable partner for all accounting and financial needs.
+                                </p>
+                                <p class="copyright-text">
+                                    <span>© 2024 AccoMitra.</span>All rights reserved. <br>
+                                    <a href="javascript:void(0)" rel="nofollow">Privacy Policy</a> |
+                                    <a href="javascript:void(0)" rel="nofollow">Terms of Service</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <div class="footer-widget f-link">
+                                <h5>Services</h5>
+                                <ul>
+                                    <li><a href="javascript:void(0)">GST Filing</a></li>
+                                    <li><a href="javascript:void(0)">Tax Returns</a></li>
+                                    <li><a href="javascript:void(0)">Bookkeeping</a></li>
+                                    <li><a href="javascript:void(0)">Payroll</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-6 col-12">
+                            <div class="footer-widget f-link">
+                                <h5>Support</h5>
+                                <ul>
+                                    <li><a href="javascript:void(0)">Help Center</a></li>
+                                    <li><a href="javascript:void(0)">Contact Us</a></li>
+                                    <li><a href="javascript:void(0)">Accountant Guide</a></li>
+                                    <li><a href="javascript:void(0)">Business Resources</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="footer-widget newsletter">
+                                <h5>Stay Updated</h5>
+                                <p>Get the latest accounting tips, tax updates, and business insights</p>
+                                <form action="#" method="get" target="_blank" class="newsletter-form">
+                                    <input name="EMAIL" placeholder="Email address" required="required" type="email" />
+                                    <div class="button">
+                                        <button class="sub-btn">
+                                            <i class="lni lni-envelope"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ End Footer Area -->
+
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!--====== js ======-->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/glightbox.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/tiny-slider.js"></script>
+    <script src="../assets/js/marketplace.js"></script>
+
+</body>
+
+</html>
