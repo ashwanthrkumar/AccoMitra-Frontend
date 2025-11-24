@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accountant Dashboard | AccoMitra</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <style>
+    body {
+      display: flex;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafc;
+      margin: 0;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #1f2937;
+      color: white;
+      height: 100vh;
+      padding: 20px;
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .sidebar li:hover,
+    .sidebar li.active {
+      background: #374151;
+    }
+
+    .main-content {
+      flex: 1;
+      margin-left: 260px;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .progress {
+      height: 10px;
+      border-radius: 6px;
+      background-color: #e5e7eb;
+    }
+
+    .progress-bar {
+      background-color: #2563eb;
+    }
+
+    .badge.approved {
+      background-color: #16a34a;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .badge.pending {
+      background-color: #f59e0b;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    .badge.rejected {
+      background-color: #dc2626;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    button.btn-primary {
+      background-color: #2563eb;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>AccoMitra</h2>
+    <ul>
+      <li class="active" id="nav-profile">Profile</li>
+      <li id="nav-documents">Documents</li>
+      <li id="nav-settings">Settings</li>
+      <li id="logoutBtn">Logout</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h3>Welcome, <span id="accountantName">Accountant</span></h3>
+      <p>Status: <span id="statusBadge" class="badge pending">PENDING</span></p>
+    </header>
+
+    <!-- PROFILE SECTION -->
+    <section id="profileSection">
+      <div class="card">
+        <h4>Profile Overview</h4>
+
+        <!-- Profile Completion -->
+        <div class="mb-4">
+          <p><strong>Profile Completion:</strong> <span id="completionPercent">0%</span></p>
+          <div class="progress mb-3">
+            <div id="completionBar" class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <!-- Profile Form -->
+        <form id="profileForm">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" id="name" class="form-control" disabled />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-control" disabled />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Phone Number</label>
+              <input type="text" id="phone" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Firm Name</label>
+              <input type="text" id="firm_name" class="form-control" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">About / Bio</label>
+            <textarea id="bio" class="form-control" rows="3"
+              placeholder="Briefly describe your expertise..."></textarea>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">City</label>
+              <input type="text" id="city" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">State</label>
+              <input type="text" id="state" class="form-control" />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Languages Known</label>
+            <input type="text" id="languages" class="form-control" placeholder="English, Hindi, Tamil" />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">LinkedIn Profile</label>
+            <input type="url" id="linkedin" class="form-control" placeholder="https://linkedin.com/in/..." />
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Specialization</label>
+              <input type="text" id="specialization" class="form-control" />
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Experience (Years)</label>
+              <input type="number" id="experience" class="form-control" />
+            </div>
+          </div>
+
+          <div class="text-end mt-3">
+            <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- DOCUMENTS SECTION -->
+    <section id="documentsSection" style="display:none;">
+      <div class="card">
+        <h4>Documents</h4>
+        <div class="mb-3"><label>ID Proof:</label> <a id="idProofLink" href="#" target="_blank">View</a></div>
+        <div class="mb-3"><label>Qualification Proof:</label> <a id="qualificationProofLink" href="#"
+            target="_blank">View</a></div>
+        <div class="mb-3"><label>CA Certificate:</label> <a id="caCertificateLink" href="#" target="_blank">View</a>
+        </div>
+        <hr>
+        <h5>Re-upload Documents</h5>
+        <input type="file" id="uploadDocs" multiple class="form-control mb-2">
+        <button class="btn btn-primary" id="uploadBtn">Upload</button>
+      </div>
+    </section>
+
+    <!-- SETTINGS SECTION -->
+    <section id="settingsSection" style="display:none;">
+      <div class="card">
+        <h4>Settings</h4>
+        <p>Coming soon...</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= JS ================= -->
+  <script>
+    const API_BASE = "http://localhost:8080/api/accountants";
+    const accountantEmail = localStorage.getItem("accountantEmail");
+
+    if (!accountantEmail) {
+      window.location.href = "login.html";
+    }
+
+    // ✅ Auto-fetch accountant details
+    async function loadAccountantDetails(email) {
+      try {
+        const res = await fetch(`${API_BASE}/byEmail/${email}`);
+        if (!res.ok) throw new Error("Failed to fetch accountant details");
+
+        const acc = await res.json();
+
+        document.getElementById("accountantName").textContent = acc.name || "Accountant";
+        document.getElementById("name").value = acc.name || "";
+        document.getElementById("email").value = acc.email || "";
+        document.getElementById("phone").value = acc.phone || "";
+        document.getElementById("firm_name").value = acc.firm_name || "";
+        document.getElementById("specialization").value = acc.specialization || "";
+        document.getElementById("experience").value = acc.experience || "";
+        document.getElementById("bio").value = acc.bio || "";
+        document.getElementById("city").value = acc.city || "";
+        document.getElementById("state").value = acc.state || "";
+        document.getElementById("languages").value = acc.languages ? acc.languages.join(", ") : "";
+        document.getElementById("linkedin").value = acc.linkedin || "";
+
+        const statusBadge = document.getElementById("statusBadge");
+        statusBadge.textContent = acc.status?.toUpperCase() || "PENDING";
+        statusBadge.className = `badge ${acc.status || "pending"}`;
+
+        updateProfileCompletion(acc);
+      } catch (err) {
+        console.error("❌ Error loading accountant:", err);
+      }
+    }
+
+    // ✅ Profile completion
+    function updateProfileCompletion(acc) {
+      const required = ["phone", "firm_name", "specialization", "experience", "bio", "city", "state"];
+      const filled = required.filter((f) => acc[f]);
+      const percent = Math.round((filled.length / required.length) * 100);
+      document.getElementById("completionPercent").textContent = percent + "%";
+      document.getElementById("completionBar").style.width = percent + "%";
+    }
+
+    loadAccountantDetails(accountantEmail);
+
+    // ✅ Handle Profile Update
+    document.getElementById("profileForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const updatedData = {
+        phone: document.getElementById("phone").value,
+        firm_name: document.getElementById("firm_name").value,
+        bio: document.getElementById("bio").value,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        languages: document.getElementById("languages").value.split(",").map(l => l.trim()),
+        linkedin: document.getElementById("linkedin").value,
+        specialization: document.getElementById("specialization").value,
+        experience: document.getElementById("experience").value
+      };
+
+      try {
+        // Assuming the update endpoint is PUT /api/accountants/{email} or similar
+        // Based on loadAccountantDetails being /byEmail/{email}, let's try /update/{email}
+        // If that fails, we might need to adjust.
+        const res = await fetch(`${API_BASE}/update/${accountantEmail}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(updatedData)
+        });
+
+        if (res.ok) {
+          alert("✅ Profile updated successfully!");
+          loadAccountantDetails(accountantEmail); // Refresh data
+        } else {
+          const data = await res.json();
+          alert("Error updating profile: " + (data.error || "Unknown error"));
+        }
+      } catch (err) {
+        console.error("❌ Update error:", err);
+        alert("Failed to update profile.");
+      }
+    });
+
+    // ✅ Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.clear();
+      alert("You’ve been logged out.");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+
+</html>

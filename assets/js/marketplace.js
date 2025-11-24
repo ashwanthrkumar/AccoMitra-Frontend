@@ -302,7 +302,7 @@ function createAccountantCard(accountant) {
                         <span class="price">${accountant.price}</span>
                     </div>
                     <div class="action-buttons">
-                        <button class="btn btn-outline-primary btn-sm">View Profile</button>
+                        <a href="accountant/accountant-details.html?email=${encodeURIComponent(accountant.name.toLowerCase().replace(/\s+/g, '') + '@example.com')}" class="btn btn-outline-primary btn-sm">View Profile</a>
                         <button class="btn btn-primary btn-sm">Contact</button>
                     </div>
                 </div>
@@ -371,27 +371,7 @@ function handleContactClick(button) {
     // 3. Send a message through the platform
 }
 
-// View Profile button functionality
-document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('btn-outline-primary') && e.target.textContent === 'View Profile') {
-        e.preventDefault();
-        handleViewProfileClick(e.target);
-    }
-});
 
-function handleViewProfileClick(button) {
-    // Get accountant name from the card
-    const card = button.closest('.accountant-profile-card');
-    const name = card.querySelector('h3').textContent;
-
-    // Show profile modal or redirect to profile page
-    alert(`Viewing ${name}'s profile... This would open a detailed profile page.`);
-
-    // In a real application, you might:
-    // 1. Open a profile modal with detailed information
-    // 2. Redirect to a dedicated profile page
-    // 3. Show reviews, portfolio, and detailed information
-}
 
 // Smooth scroll for anchor links
 document.addEventListener('click', function (e) {

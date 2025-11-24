@@ -70,7 +70,7 @@
     </div>
 
     <script>
-        const BACKEND_URL = "https://accomitra-backend-726841594875.asia-south1.run.app"; // change to your Cloud Run URL in production
+        const BACKEND_URL = "http://localhost:8080"; // change to your Cloud Run URL in production
 
         document.getElementById("loginForm").addEventListener("submit", async (e) => {
             e.preventDefault();
@@ -88,11 +88,13 @@
                 });
 
                 const data = await res.json();
-
+                
+                localStorage.setItem("accountantEmail", email);
+                localStorage.setItem("accountantName", data.accountant.name);
                 if (res.ok) {
                     alert("✅ Login successful!");
                     localStorage.setItem("accountantEmail", credentials.email);
-                    window.location.href = "marketplace.html"; // or dashboard page
+                    window.location.href = "dashboard.html"; // or dashboard page
                 } else {
                     alert("❌ " + data.message);
                 }

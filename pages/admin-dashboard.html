@@ -71,7 +71,15 @@
         }
 
         .reject-btn {
+            background: #f9a825;
+            /* amber/yellow tone */
+            color: #fff;
+        }
+
+        .delete-btn {
             background: #c62828;
+            /* strong red */
+            color: #fff;
         }
 
         .view-btn {
@@ -209,9 +217,9 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        const BACKEND_URL = "https://accomitra-backend-726841594875.asia-south1.run.app/api/admin";
+        const BACKEND_URL = "http://localhost:8080/api/admin";
 
-        const ALLOWED_ADMINS = ["ashwanthrkumar@gmail.com", "accomitra.admin@gmail.com"];
+        const ALLOWED_ADMINS = ["ashwanthrkumar@gmail.com", "ashwanthrkumar531@gmail.com"];
 
         const tableBody = document.querySelector("#accountantsTable tbody");
         const statusFilter = document.getElementById("statusFilter");
@@ -273,6 +281,7 @@
                    <button class="reject-btn" data-id="${acc.id}">Reject</button>`
                         : ""
                     }
+            <button class="delete-btn" data-id="${acc.id}">Delete</button>
           </td>`;
                 tableBody.appendChild(row);
             });
@@ -292,7 +301,10 @@
                 approve(id);
             } else if (btn.classList.contains("reject-btn")) {
                 openRejectModal(id);
+            } else if (btn.classList.contains("delete-btn")) {
+                deleteAccountant(id);
             }
+
         });
 
         async function approve(id) {
@@ -315,6 +327,26 @@
             rejectReasonInput.value = "";
             rejectModal.style.display = "flex";
         }
+
+        async function deleteAccountant(id) {
+            if (!confirm("Are you sure you want to permanently delete this accountant?")) return;
+
+            try {
+                const res = await fetch(`${BACKEND_URL}/accountants/${id}`, { method: "DELETE" });
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert("🗑️ Accountant deleted successfully!");
+                    await loadAccountants();
+                } else {
+                    alert("Error deleting accountant: " + (data.error || "Unknown error"));
+                }
+            } catch (error) {
+                console.error("❌ Delete error:", error);
+                alert("Failed to delete accountant.");
+            }
+        }
+
 
         // ✅ Make both close functions accessible globally
         window.closeViewModal = function () {
@@ -402,7 +434,7 @@
 
         document.getElementById("logoutBtn").addEventListener("click", async () => {
             await signOut(auth);
-            window.location.href = "admin-login.html";
+            window.location.href = "admin-adm.html";
         });
     </script>
 </body>

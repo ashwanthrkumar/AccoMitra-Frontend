@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="Accountant Profile - AccoMitra" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Accountant Profile | AccoMitra</title>
+    <link rel="shortcut icon" href="../../assets/images/favicon.svg" type="image/svg" />
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../assets/css/lineicons.css" />
+    <link rel="stylesheet" href="../../style.css" />
+    <style>
+        .profile-hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0 40px;
+        }
+
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 20px;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .verified-badge-lg {
+            color: #28a745;
+            font-size: 1.2rem;
+            margin-left: 5px;
+        }
+
+        .profile-section {
+            padding: 40px 0;
+        }
+
+        .info-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e7f1ff;
+            color: #0d6efd;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 0 5px 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+        /* debug banner */
+        #debugEmailBanner {
+            position: fixed;
+            left: 8px;
+            top: 8px;
+            z-index: 9999;
+            padding: 6px 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 13px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- debug banner: shows what the page actually sees in location -->
+    <div id="debugEmailBanner">loading URL debug...</div>
+
+    <!-- Navbar -->
+    <section class="navbar-area navbar-nine">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="../../index.html">
+                            <img src="../../assets/images/white.png" alt="Logo" width="100" />
+                        </a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNine">
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                            <span class="toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse sub-menu-bar" id="navbarNine">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item"><a class="page-scroll" href="../../index.html">Home</a></li>
+                                <li class="nav-item"><a href="../marketplace.html">Marketplace</a></li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item"><a href="../auth.html" class="sign-in-link">SIGN IN</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br><br><br><br><br>
+
+    <!-- Profile Content -->
+    <div id="profileContent">
+        <!-- Loading State -->
+        <div class="container py-5 text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-area footer-eleven">
+        <div class="footer-top">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="copyright-text">
+                                <p>© 2024 AccoMitra. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // set debug banner immediately so you see it even if other scripts run
+        (function () {
+            const banner = document.getElementById('debugEmailBanner');
+            banner.textContent = 'URL: ' + window.location.href + ' | search: ' + window.location.search;
+            console.log('DEBUG - URL:', window.location.href);
+            console.log('DEBUG - search:', window.location.search);
+        })();
+    </script>
+
+    <script>
+(async function () {
+  // Helper: base API depending on host
+  const API_BASE = window.location.hostname === 'localhost' ? 'http://localhost:8080' : '';
+
+  // Utility to safely get the email param
+  function getEmailFromQuery() {
+    const params = new URLSearchParams(window.location.search || '');
+    const raw = params.get('email');
+    if (!raw) return null;
+    try {
+      return decodeURIComponent(raw).trim();
+    } catch (e) {
+      return raw.trim();
+    }
+  }
+
+  const container = document.getElementById('profileContent');
+
+  function showMessage(html) {
+    container.innerHTML = `<div class="container py-5 text-center">${html}</div>`;
+  }
+
+  const email = getEmailFromQuery();
+  if (!email) {
+    showMessage(`
+      <h3>Accountant not specified</h3>
+      <p class="text-muted">This page expects an email query parameter, for example <code>?email=john%40example.com</code></p>
+      <a href="../marketplace.html" class="btn btn-primary mt-3">Back to Marketplace</a>
+    `);
+    console.warn('No email query parameter found. URL:', window.location.href);
+    return;
+  }
+
+  const normalizedEmail = email.replace(/\s+/g, '').replace('mailto:', '');
+
+  async function tryFetchAccountantByEmail(emailToFetch) {
+    const attempts = [
+      `${API_BASE}/api/accountants/email/${encodeURIComponent(emailToFetch)}`,
+      `${API_BASE}/api/accountants/byEmail/${encodeURIComponent(emailToFetch)}`,
+      `${API_BASE}/api/accountants/${encodeURIComponent(emailToFetch)}`,
+      `${API_BASE}/api/accountants?email=${encodeURIComponent(emailToFetch)}`,
+      `${API_BASE}/api/accountants/approved`
+    ];
+
+    for (let url of attempts) {
+      try {
+        console.log('Attempting fetch:', url);
+        const res = await fetch(url, { credentials: 'include' });
+        if (!res.ok) {
+          console.log('Fetch failed (status):', res.status, url);
+          continue;
+        }
+        const body = await res.json();
+        if (Array.isArray(body)) {
+          const found = body.find(a => (a.email || '').toLowerCase() === emailToFetch.toLowerCase());
+          if (found) return found;
+          continue;
+        }
+        if (body && typeof body === 'object') {
+          if (body.data && typeof body.data === 'object') return body.data;
+          return body;
+        }
+      } catch (err) {
+        console.warn('Fetch error for', url, err);
+        continue;
+      }
+    }
+    return null;
+  }
+
+  container.innerHTML = `<div class="container py-5 text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>`;
+
+  try {
+    const acc = await tryFetchAccountantByEmail(normalizedEmail);
+
+    if (!acc) {
+      showMessage(`
+        <h3>Accountant not found</h3>
+        <p class="text-muted">We could not find an accountant with email <strong>${normalizedEmail}</strong>.</p>
+        <p class="small text-muted">Possible causes: the email is incorrect, the backend endpoint differs from expected, or cross-origin requests are blocked.</p>
+        <a href="../marketplace.html" class="btn btn-primary mt-3">Back to Marketplace</a>
+      `);
+      return;
+    }
+
+    const photoSrc = acc.photoUrl
+      ? (acc.photoUrl.startsWith('http') ? acc.photoUrl : `${API_BASE}${acc.photoUrl.startsWith('/') ? '' : '/'}${acc.photoUrl}`)
+      : `../../assets/images/default-avatar.png`;
+
+    container.innerHTML = `
+      <section class="profile-hero text-center">
+        <div class="container">
+          <div class="profile-img-container">
+            <img src="${photoSrc}" alt="${acc.name || 'Accountant'}" onerror="this.onerror=null;this.src='../../assets/images/default-avatar.png'">
+          </div>
+          <h1 class="mb-2">${acc.name || 'Unnamed'} <i class="lni lni-checkmark-circle verified-badge-lg" title="Verified"></i></h1>
+          <p class="text-muted mb-3">${acc.registrationType === "CA" ? "Chartered Accountant (CA)" : "Accountant"}</p>
+          <div class="d-flex justify-content-center gap-3 text-secondary">
+            <span><i class="lni lni-map-marker"></i> ${acc.city || 'N/A'} ${acc.state ? ', ' + acc.state : ''}</span>
+            <span><i class="lni lni-star-filled text-warning"></i> ${acc.rating || '4.5'} (${acc.reviewsCount || '50+'} Reviews)</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="info-card">
+                <h3>About Me</h3>
+                <p>${acc.bio || "No bio provided."}</p>
+              </div>
+
+              <div class="info-card">
+                <h3>Specializations</h3>
+                <div class="tags-container">
+                  ${acc.specialization ? acc.specialization.split(',').map(s => `<span class="tag">${s.trim()}</span>`).join('') : '<span class="text-muted">No specializations listed</span>'}
+                </div>
+              </div>
+
+              <div class="info-card">
+                <h3>Experience & Education</h3>
+                <ul class="list-unstyled">
+                  <li class="mb-3"><strong>Experience:</strong> ${acc.experience || 0} Years</li>
+                  <li class="mb-3"><strong>Firm Name:</strong> ${acc.firm_name || "N/A"}</li>
+                  <li><strong>Languages:</strong> ${acc.languages || "English"}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="info-card">
+                <h3>Contact Info</h3>
+                <p class="mb-3"><i class="lni lni-envelope"></i> ${acc.email}</p>
+                <p class="mb-4"><i class="lni lni-phone"></i> ${acc.phone || "Not available"}</p>
+                <a href="mailto:${acc.email}" class="btn btn-primary contact-btn mb-2">Send Email</a>
+                ${acc.linkedin ? `<a href="${acc.linkedin}" target="_blank" rel="noopener" class="btn btn-outline-primary contact-btn">LinkedIn Profile</a>` : ''}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+  } catch (err) {
+    console.error('Unexpected error while loading profile', err);
+    showMessage(`<div class="text-danger">Error loading profile. Check the console for details.</div>`);
+  }
+})();
+</script>
+
+</body>
+
+</html>
